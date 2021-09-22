@@ -8,5 +8,14 @@ namespace Lab6.Properties
 {
     class GraphManager
     {
+        private GraphManager() { }
+
+        private GraphManager graphManager = new GraphManager();
+
+        public GraphManager getInstance ()
+        {
+
+
+        }
     }
 }

@@ -6,17 +6,18 @@ using System.Threading.Tasks;
 
 namespace Lab6.Properties
 {
-    class Edge
+    interface IGraph<T> : ICloneable<T>
     {
-        private int edge_no;
-        private Vertex from_vertex;
-        private Vertex to_vertex;
 
+        void print();
 
-        public void draw()
-        {
+        void create();
 
+        void revise();
 
-        }
+        void copy();
+
+        void getID();
+
     }
 }
