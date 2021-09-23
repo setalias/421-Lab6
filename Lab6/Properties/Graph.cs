@@ -12,6 +12,12 @@ namespace Lab6.Properties
         private Vertex[] vertices;
         private Edge[] edges;
 
+        public Graph clone()
+        {
+            throw new NotImplementedException();
+        }
+
+
         public void print()
         {
 
@@ -39,9 +45,18 @@ namespace Lab6.Properties
 
         }
 
-        public Graph clone()
+        public void addEdge(Vertex from, Vertex to)
         {
-            throw new NotImplementedException();
+
+
         }
+
+        public void addVertex(int x, int y)
+        {
+        
+        }
+
+
+        
     }
 }
