@@ -17,7 +17,6 @@ namespace Lab6.Properties
         {
             this.from_vertex = from;
             this.to_vertex = to;
-
         }
 
         public Vertex getFrom()
