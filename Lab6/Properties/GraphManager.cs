@@ -15,7 +15,7 @@ namespace Lab6.Properties
         public GraphManager getInstance ()
         {
 
-
+            return null;
         }
     }
 }

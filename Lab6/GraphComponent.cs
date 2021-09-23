@@ -11,7 +11,6 @@ namespace Lab6
     {
         private int id;
         protected static int _id = 0;
-        private DrawUtil drawutil = new DrawUtil();
         public abstract void draw(Graphics g);
 
         protected void setID()

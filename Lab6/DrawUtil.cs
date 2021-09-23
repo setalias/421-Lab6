@@ -9,14 +9,14 @@ namespace Lab6
 {
     class DrawUtil
     {
-        public double cosine(Point p1, Point p2)
+        public static double cosine(Point p1, Point p2)
         {
             double d0 = p1.X * p2.X + p1.Y * p2.Y;
             double d1 = Math.Sqrt(p1.X * p1.X + p1.Y * p1.Y);
             return d0 / d1;
         }
 
-        public Point compute(Point p1, double angle)
+        public static Point compute(Point p1, double angle)
         {
             double d1 = Math.Sqrt(p1.X * p1.X + p1.Y * p1.Y);
             double x = -20 * p1.X / d1;

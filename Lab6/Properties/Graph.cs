@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace Lab6.Properties
 {
     class Graph : IGraph<Graph>
     {
         private int id;
-        private Vertex[] vertices;
-        private Edge[] edges;
+        private List<IGraphComponent> graphComponents = new List<IGraphComponent>();
+
 
         public Graph clone()
         {
@@ -18,9 +20,9 @@ namespace Lab6.Properties
         }
 
 
-        public void print()
+        public void print(Graphics g)
         {
-
+            graphComponents.ForEach(c => c.draw(g));
         }
 
         public void create()
@@ -47,16 +49,13 @@ namespace Lab6.Properties
 
         public void addEdge(Vertex from, Vertex to)
         {
-
-
+            graphComponents.Add(new Edge(from, to));
         }
 
         public void addVertex(int x, int y)
         {
-        
+            graphComponents.Add(new Vertex(x, y));        
         }
 
-
-        
     }
 }

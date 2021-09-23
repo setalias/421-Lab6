@@ -9,6 +9,7 @@ namespace Lab6.Properties
 {
     class Vertex : GraphComponent
     {
+        public static int SIZE = 25;
         private int x_coordinate;
         private int y_coordinate;
         
@@ -40,7 +41,25 @@ namespace Lab6.Properties
         }
         public override void draw(Graphics g)
         {
-            throw new NotImplementedException();
+            Pen pen = new Pen(Color.Black);
+
+            int s = 25;
+            int v = 1;
+            Rectangle r = getRectangle();
+            g.DrawEllipse(pen, r);
+
+        }
+        public static int getV(Rectangle r1, Rectangle r2)
+        {
+            if (r1.Y > r2.Y)
+            {
+                return -1;
+            }
+            return 1;
+        }
+        public Rectangle getRectangle()
+        {            
+            return new Rectangle(x_coordinate, y_coordinate, 2*SIZE, 2*SIZE);
         }
     }
 }
