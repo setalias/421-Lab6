@@ -22,5 +22,9 @@ namespace Lab6.Properties
 
         Vertex getVertex(String vertexId);
 
+        List<Vertex> getVertices();
+
+        List<Edge> getEdges();
+
     }
 }

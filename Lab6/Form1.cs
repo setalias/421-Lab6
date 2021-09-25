@@ -43,8 +43,11 @@ namespace Lab6
             string selectedGraph = listBox1.SelectedItem.ToString();
             graphmanager.revise(selectedGraph);
             listBox2.Items.Clear();
-            
-            
+            graphmanager.getselected().getVertices()
+                .ForEach(v => listBox2.Items.Add(v.getID()));
+            listBox3.Items.Clear();
+            graphmanager.getselected().getEdges()
+                 .ForEach(e => listBox3.Items.Add(e.getID()));
         }
 
         private void listBox2_MouseClick(object sender, MouseEventArgs e)

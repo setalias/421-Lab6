@@ -75,5 +75,15 @@ namespace Lab6.Properties
                 .Where(v => v.getID().Equals(vertexId))
                 .First();
         }
+
+        public List<Vertex> getVertices()
+        {
+            return this.vertices;
+        }
+
+        public List<Edge> getEdges()
+        {
+            return this.edges;
+        }
     }
 }
