@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Lab6.Properties
 {
-    class Edge : GraphComponent
+    class Edge : GraphComponent, ICloneable<Edge>
     {
-        private int edge_no;
         private Vertex from_vertex;
         private Vertex to_vertex;
 
@@ -17,6 +16,12 @@ namespace Lab6.Properties
         {
             this.from_vertex = from;
             this.to_vertex = to;
+            this.setID();
+        }
+
+        public Edge Clone()
+        {
+            return new Edge(this.from_vertex.Clone(), this.to_vertex.Clone());
         }
 
         public Vertex getFrom()
@@ -26,7 +31,7 @@ namespace Lab6.Properties
 
         public void setFrom(Vertex from)
         {
-            from = this.from_vertex;   
+            this.from_vertex = from;   
         }
 
         public Vertex getTo()
@@ -36,7 +41,7 @@ namespace Lab6.Properties
 
         public void setTo(Vertex to)
         {
-            to = this.to_vertex;            
+            this.to_vertex = to;            
         }
 
         public override void draw(Graphics g)

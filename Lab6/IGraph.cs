@@ -12,13 +12,15 @@ namespace Lab6.Properties
 
         void print(Graphics g);
 
-        void create();
+        String getID();
 
-        void revise();
+        void addEdge(Edge edge);
 
-        void copy();
+        Edge getEdge(String edgeId);
 
-        void getID();
+        void addVertex(Vertex vertex);
+
+        Vertex getVertex(String vertexId);
 
     }
 }

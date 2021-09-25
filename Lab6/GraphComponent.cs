@@ -9,19 +9,17 @@ namespace Lab6
 {
     abstract class GraphComponent : IGraphComponent
     {
-        private int id;
-        protected static int _id = 0;
+        private String uuid;
         public abstract void draw(Graphics g);
 
         protected void setID()
         {
-            GraphComponent._id += 1;
-            this.id = GraphComponent._id;
+            this.uuid = Guid.NewGuid().ToString();
         }
 
-        public int getID()
+        public String getID()
         {
-            return this.id;
+            return this.uuid;
         }
     }
 }

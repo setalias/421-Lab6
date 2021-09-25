@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lab6.Properties
 {
-    class Vertex : GraphComponent
+    class Vertex : GraphComponent, ICloneable<Vertex>
     {
         public static int SIZE = 25;
         private int x_coordinate;
@@ -20,6 +20,14 @@ namespace Lab6.Properties
             this.y_coordinate = y;
             this.setID();
         }
+
+        public Vertex Clone()
+        {
+            Vertex newVertex = (Vertex)MemberwiseClone();
+            newVertex.setID();
+            return newVertex;
+        }
+
         public int getX() 
         {
             return x_coordinate;
