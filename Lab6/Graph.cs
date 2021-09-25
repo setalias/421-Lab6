@@ -10,53 +10,70 @@ namespace Lab6.Properties
 {
     class Graph : IGraph<Graph>
     {
-        private int id;
-        private List<IGraphComponent> graphComponents = new List<IGraphComponent>();
+        private String uuid;
+        private List<Vertex> vertices = new List<Vertex>();
+        private List<Edge> edges = new List<Edge>();
 
-
-        public Graph clone()
+        public Graph()
         {
-            throw new NotImplementedException();
+            this.setID();
         }
 
+        public Graph Clone()
+        {
+            Graph newGraph = (Graph)MemberwiseClone();
+            newGraph.setID();
+            newGraph.vertices = new List<Vertex>();
+            newGraph.edges = new List<Edge>();
+            this.vertices
+                .Select(v => v.Clone())
+                .ToList<Vertex>()
+                .ForEach(v => newGraph.vertices.Add(v));
+            this.edges
+                .Select(e => e.Clone())
+                .ToList<Edge>()
+                .ForEach(e => newGraph.edges.Add(e));
+            return newGraph;
+        }
+
+        private void setID()
+        {
+            this.uuid = Guid.NewGuid().ToString();
+        }
 
         public void print(Graphics g)
         {
-            graphComponents.ForEach(c => c.draw(g));
+            this.vertices.ForEach(v => v.draw(g));
+            this.edges.ForEach(e => e.draw(g));
         }
 
-        public void create()
+        public String getID()
         {
-
+            return this.uuid;
         }
 
-        public void revise()
+        public void addEdge(Edge edge)
         {
-
+            this.edges.Add(edge);
         }
 
-        public void copy()
+        public void getID()
         {
-
-
+            return this.edges
+                .Where(e => e.getID().Equals(edgeId))
+                .First();
         }
 
-        public int getID()
+        public void addVertex(Vertex vertex)
         {
-
-
-            return id;
+            vertices.Add(vertex);        
         }
 
-        public void addEdge(Vertex from, Vertex to)
+        public Vertex getVertex(String vertexId)
         {
-            graphComponents.Add(new Edge(from, to));
+            return this.vertices
+                .Where(v => v.getID().Equals(vertexId))
+                .First();
         }
-
-        public void addVertex(int x, int y)
-        {
-            graphComponents.Add(new Vertex(x, y));        
-        }
-
     }
 }

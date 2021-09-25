@@ -11,7 +11,6 @@ namespace Lab6
     {
         void draw(Graphics g);
 
-        int getID();
-
+        String getID();
     }
 }
