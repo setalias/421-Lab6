@@ -8,13 +8,13 @@ namespace Lab6.Properties
 {
     class GraphManager
     {
-        private GraphManager graphManager = new GraphManager();
-        private List<IGraph<Graph>> graphs;
+        private static GraphManager graphManager = new GraphManager();
+        private List<IGraph<Graph>> graphs = new List<IGraph<Graph>>();
         private IGraph<Graph> selected;
 
         private GraphManager() { }
 
-        public GraphManager getInstance ()
+        public static GraphManager getInstance ()
         {
             return graphManager;
         }
@@ -66,6 +66,11 @@ namespace Lab6.Properties
             Edge toRevise = this.selected.getEdge(edgeId);
             toRevise.setFrom(this.selected.getVertex(newFromId));
             toRevise.setTo(this.selected.getVertex(newToId));
+        }
+
+        public IGraph<Graph> getselected()
+        {
+            return this.selected;
         }
     }
 }

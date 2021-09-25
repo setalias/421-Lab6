@@ -57,7 +57,7 @@ namespace Lab6.Properties
             this.edges.Add(edge);
         }
 
-        public void getID()
+        public Edge getEdge(string edgeId)
         {
             return this.edges
                 .Where(e => e.getID().Equals(edgeId))
