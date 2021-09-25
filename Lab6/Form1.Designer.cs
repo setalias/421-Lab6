@@ -57,6 +57,7 @@ namespace Lab6
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(298, 511);
             this.listBox1.TabIndex = 4;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // createGraphButton
             // 
@@ -94,6 +95,7 @@ namespace Lab6
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(305, 511);
             this.listBox2.TabIndex = 18;
+            this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
             // 
             // listBox3
             // 
@@ -102,6 +104,7 @@ namespace Lab6
             this.listBox3.Name = "listBox3";
             this.listBox3.Size = new System.Drawing.Size(291, 511);
             this.listBox3.TabIndex = 19;
+            this.listBox3.SelectedIndexChanged += new System.EventHandler(this.listBox3_SelectedIndexChanged);
             // 
             // label10
             // 

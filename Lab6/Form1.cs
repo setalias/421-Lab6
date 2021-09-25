@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Lab6.Properties;
 
@@ -22,30 +15,10 @@ namespace Lab6
             panel1.Paint += new PaintEventHandler(panel1_Paint);
         }
 
-        // Create Graph
-        // saved logic: int.TryParse(textBox1.Text, out x_source)  && int.TryParse(textBox2.Text, out y_source) && int.TryParse(textBox3.Text, out size_source)
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
-
-        private void listBox1_MouseClick(object sender, MouseEventArgs e)
-        {
-            string selectedGraph = listBox1.SelectedItem.ToString();
-            graphmanager.revise(selectedGraph);
-            listBox2.Items.Clear();
-            graphmanager.getselected().getVertices()
-                .ForEach(ve => listBox2.Items.Add(ve.getID()));
-            listBox3.Items.Clear();
-            graphmanager.getselected().getEdges()
-                 .ForEach(ed => listBox3.Items.Add(ed.getID()));
-
-
-
-            this.Refresh();
-        }
-
 
         private void listBox2_MouseClick(object sender, MouseEventArgs e)
         {
@@ -109,7 +82,8 @@ namespace Lab6
         {
             if (listBox1.SelectedItem != null)
             {
-                graphmanager.copy(listBox1.SelectedItem.ToString());
+                listBox1.Items.Add(graphmanager.copy(listBox1.SelectedItem.ToString()));
+                this.Refresh();
             }
             else
             {
@@ -118,36 +92,32 @@ namespace Lab6
             
         }
 
-
-
-
-
-
-
-
-
-
-        /*
-        public static string ShowDialog(string text, string caption)
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Form prompt = new Form()
-            {
-                Width = 500,
-                Height = 150,
-                FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = caption,
-                StartPosition = FormStartPosition.CenterScreen
-            };
-            Label textLabel = new Label() { Left = 50, Top = 20, Text = text };
-            TextBox textBox = new TextBox() { Left = 50, Top = 50, Width = 400 };
-            Button confirmation = new Button() { Text = "Ok", Left = 350, Width = 100, Top = 70, DialogResult = DialogResult.OK };
-            confirmation.Click += (sender, e) => { prompt.Close(); };
-            prompt.Controls.Add(textBox);
-            prompt.Controls.Add(confirmation);
-            prompt.Controls.Add(textLabel);
-            prompt.AcceptButton = confirmation;
-            return prompt.ShowDialog() == DialogResult.OK ? textBox.Text : "";
+            string selectedGraph = listBox1.SelectedItem.ToString();
+            graphmanager.revise(selectedGraph);
+            listBox2.Items.Clear();
+            graphmanager.getselected().getVertices()
+                .ForEach(ve => listBox2.Items.Add(ve.getID()));
+            listBox3.Items.Clear();
+            graphmanager.getselected().getEdges()
+                 .ForEach(ed => listBox3.Items.Add(ed.getID()));
+            this.Refresh();
+        }
 
-        } */
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedVertex = listBox2.SelectedItem.ToString();
+            var ReviseVertex = new VertexFormPopup(this, selectedVertex);
+            ReviseVertex.Show(this);
+        }
+
+        private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedEdge = listBox3.SelectedItem.ToString();
+            var ReviseEdge = new EdgeFormPopup(this, selectedEdge);
+            ReviseEdge.Show(this);
+        }
+
     } 
 }

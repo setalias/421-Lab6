@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab6.Properties
 {
@@ -32,7 +30,7 @@ namespace Lab6.Properties
             this.selected = graphs.Where(g => g.getID().Equals(id)).First();
         }
 
-        public void copy(String id)
+        public string copy(String id)
         {
             Graph copied = graphs
                 .Where(g => g.getID()
@@ -41,6 +39,7 @@ namespace Lab6.Properties
                 .Clone();
             graphs.Add(copied);
             this.selected = copied;
+            return copied.getID();
         }
 
         public String addVertexToSelectedGraph(int x, int y)

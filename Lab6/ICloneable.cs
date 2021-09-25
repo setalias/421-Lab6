@@ -1,5 +1,4 @@
-﻿using System;
-namespace Lab6
+﻿namespace Lab6
 {
     public interface ICloneable<T>
     {

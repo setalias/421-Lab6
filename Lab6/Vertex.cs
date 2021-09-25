@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
+
 
 namespace Lab6.Properties
 {
@@ -35,7 +31,7 @@ namespace Lab6.Properties
 
         public void setX(int x)
         {
-            x = this.x_coordinate;
+            this.x_coordinate = x;
         }
 
         public int getY()
@@ -45,7 +41,7 @@ namespace Lab6.Properties
 
         public void setY(int y)
         {
-            y = this.y_coordinate;
+            this.y_coordinate = y;
         }
         public override void draw(Graphics g)
         {
