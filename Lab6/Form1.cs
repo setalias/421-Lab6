@@ -14,9 +14,6 @@ namespace Lab6
     public partial class Form1 : Form
     {
         private GraphManager graphmanager;
-        int x_source, x_dest;
-        int y_source, y_dest;
-        int size_source, size_dest;
 
         public Form1()
         {
@@ -27,11 +24,6 @@ namespace Lab6
 
         // Create Graph
         // saved logic: int.TryParse(textBox1.Text, out x_source)  && int.TryParse(textBox2.Text, out y_source) && int.TryParse(textBox3.Text, out size_source)
-        private void button1_Click(object sender, EventArgs e)
-        {
-            graphmanager.create();
-            listBox1.Items.Add(graphmanager.getselected().getID());
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -44,15 +36,63 @@ namespace Lab6
             graphmanager.revise(selectedGraph);
             listBox2.Items.Clear();
             graphmanager.getselected().getVertices()
-                .ForEach(v => listBox2.Items.Add(v.getID()));
+                .ForEach(ve => listBox2.Items.Add(ve.getID()));
             listBox3.Items.Clear();
             graphmanager.getselected().getEdges()
-                 .ForEach(e => listBox3.Items.Add(e.getID()));
+                 .ForEach(ed => listBox3.Items.Add(ed.getID()));
+
+
+
+            this.Refresh();
         }
+
 
         private void listBox2_MouseClick(object sender, MouseEventArgs e)
         {
             string selectedVertex = listBox2.SelectedItem.ToString();
+        }
+
+        private void addVertexButton_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex != -1)
+            {
+                var AddVertex = new VertexFormPopup(this);
+                AddVertex.Show(this);
+            }
+            else
+            {
+                MessageBox.Show("Please Select a Graph");
+            }
+            
+        }
+
+        private void AddEdgeButton_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex != -1)
+            {
+                var AddEdge = new EdgeFormPopup(this);
+                AddEdge.Show(this);
+            }
+            else
+            {
+                MessageBox.Show("Please Select a Graph");
+            }
+        }
+
+        public void updateList2(string data)
+        {
+            listBox2.Items.Add(data);
+        }
+
+        public void updateList3(string data)
+        {
+            listBox3.Items.Add(data);
+        }
+
+        private void createGraphButton_Click(object sender, EventArgs e)
+        {
+            graphmanager.create();
+            listBox1.Items.Add(graphmanager.getselected().getID());
         }
 
         private void listBox3_MouseClick(object sender, MouseEventArgs e)
@@ -60,32 +100,54 @@ namespace Lab6
             string selectedEdge = listBox3.SelectedItem.ToString();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        public void panel1_Paint(object sender, PaintEventArgs e)
         {
-            Graph g1 = new Graph();
-            Vertex v1 = new Vertex(200, 130);
-            Vertex v2 = new Vertex(150, 300);
-            Edge e1 = new Edge(v1, v2);
-           /* g1.addVertex(200, 130);
-            g1.addVertex(150, 300);
-            g1.addEdge(v1, v2); */
-            g1.print(e.Graphics);
-
+            graphmanager.print(e.Graphics);
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void copyGraphButton_Click(object sender, EventArgs e)
         {
-
+            if (listBox1.SelectedItem != null)
+            {
+                graphmanager.copy(listBox1.SelectedItem.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Please select a graph to copy");
+            }
+            
         }
 
 
-       
 
-        private void listBox1_MouseClick(object sender, MouseEventArgs e)
+
+
+
+
+
+
+
+        /*
+        public static string ShowDialog(string text, string caption)
         {
-            string selectedItem = listBox1.SelectedItem.ToString();
+            Form prompt = new Form()
+            {
+                Width = 500,
+                Height = 150,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                Text = caption,
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            Label textLabel = new Label() { Left = 50, Top = 20, Text = text };
+            TextBox textBox = new TextBox() { Left = 50, Top = 50, Width = 400 };
+            Button confirmation = new Button() { Text = "Ok", Left = 350, Width = 100, Top = 70, DialogResult = DialogResult.OK };
+            confirmation.Click += (sender, e) => { prompt.Close(); };
+            prompt.Controls.Add(textBox);
+            prompt.Controls.Add(confirmation);
+            prompt.Controls.Add(textLabel);
+            prompt.AcceptButton = confirmation;
+            return prompt.ShowDialog() == DialogResult.OK ? textBox.Text : "";
 
-        }
-
-    }
+        } */
+    } 
 }

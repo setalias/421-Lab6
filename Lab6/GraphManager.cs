@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,16 +43,20 @@ namespace Lab6.Properties
             this.selected = copied;
         }
 
-        public void addVertexToSelectedGraph(int x, int y)
+        public String addVertexToSelectedGraph(int x, int y)
         {
-            this.selected.addVertex(new Vertex(x, y));
+            Vertex newVertex = new Vertex(x, y);
+            this.selected.addVertex(newVertex);
+            return newVertex.getID();
         }
 
-        public void addEdgeToSelectedGraph(String fromVertexId, String toVertexId)
+        public String addEdgeToSelectedGraph(String fromVertexId, String toVertexId)
         {
-            this.selected.addEdge(new Edge(
+            Edge newEdge = new Edge(
                 this.selected.getVertex(fromVertexId),
-                this.selected.getVertex(toVertexId)));
+                this.selected.getVertex(toVertexId));
+            this.selected.addEdge(newEdge);
+            return newEdge.getID();
         }
 
         public void reviseVertex(String vertexId, int newX, int newY)
@@ -71,6 +76,14 @@ namespace Lab6.Properties
         public IGraph<Graph> getselected()
         {
             return this.selected;
+        }
+
+        public void print(Graphics g)
+        {
+            if (this.selected != null) 
+            {
+                this.selected.print(g);
+            }
         }
     }
 }

@@ -31,17 +31,15 @@ namespace Lab6
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.createGraphButton = new System.Windows.Forms.Button();
+            this.copyGraphButton = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.listBox3 = new System.Windows.Forms.ListBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.addVertexButton = new System.Windows.Forms.Button();
+            this.addEdgeButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panel1
@@ -60,33 +58,25 @@ namespace Lab6
             this.listBox1.Size = new System.Drawing.Size(298, 511);
             this.listBox1.TabIndex = 4;
             // 
-            // button1
+            // createGraphButton
             // 
-            this.button1.Location = new System.Drawing.Point(1022, 556);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 29);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Create Graph";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.createGraphButton.Location = new System.Drawing.Point(1022, 556);
+            this.createGraphButton.Name = "createGraphButton";
+            this.createGraphButton.Size = new System.Drawing.Size(112, 29);
+            this.createGraphButton.TabIndex = 1;
+            this.createGraphButton.Text = "Create Graph";
+            this.createGraphButton.UseVisualStyleBackColor = true;
+            this.createGraphButton.Click += new System.EventHandler(this.createGraphButton_Click);
             // 
-            // button2
+            // copyGraphButton
             // 
-            this.button2.Location = new System.Drawing.Point(1634, 591);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(112, 29);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Revise Edge";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(1022, 591);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(112, 29);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Copy";
-            this.button3.UseVisualStyleBackColor = true;
+            this.copyGraphButton.Location = new System.Drawing.Point(1022, 591);
+            this.copyGraphButton.Name = "copyGraphButton";
+            this.copyGraphButton.Size = new System.Drawing.Size(112, 29);
+            this.copyGraphButton.TabIndex = 3;
+            this.copyGraphButton.Text = "Copy";
+            this.copyGraphButton.UseVisualStyleBackColor = true;
+            this.copyGraphButton.Click += new System.EventHandler(this.copyGraphButton_Click);
             // 
             // label9
             // 
@@ -131,50 +121,41 @@ namespace Lab6
             this.label11.TabIndex = 21;
             this.label11.Text = "Selected Graph Edges";
             // 
-            // button4
+            // addVertexButton
             // 
-            this.button4.Location = new System.Drawing.Point(1324, 556);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(112, 29);
-            this.button4.TabIndex = 22;
-            this.button4.Text = "Add Vertex";
-            this.button4.UseVisualStyleBackColor = true;
+            this.addVertexButton.Location = new System.Drawing.Point(1324, 556);
+            this.addVertexButton.Name = "addVertexButton";
+            this.addVertexButton.Size = new System.Drawing.Size(112, 29);
+            this.addVertexButton.TabIndex = 22;
+            this.addVertexButton.Text = "Add Vertex";
+            this.addVertexButton.UseVisualStyleBackColor = true;
+            this.addVertexButton.Click += new System.EventHandler(this.addVertexButton_Click);
             // 
-            // button5
+            // addEdgeButton
             // 
-            this.button5.Location = new System.Drawing.Point(1634, 556);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(112, 29);
-            this.button5.TabIndex = 23;
-            this.button5.Text = "Add Edge";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(1324, 591);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(112, 29);
-            this.button6.TabIndex = 28;
-            this.button6.Text = "Revise Vertex";
-            this.button6.UseVisualStyleBackColor = true;
+            this.addEdgeButton.Location = new System.Drawing.Point(1634, 556);
+            this.addEdgeButton.Name = "addEdgeButton";
+            this.addEdgeButton.Size = new System.Drawing.Size(112, 29);
+            this.addEdgeButton.TabIndex = 23;
+            this.addEdgeButton.Text = "Add Edge";
+            this.addEdgeButton.UseVisualStyleBackColor = true;
+            this.addEdgeButton.Click += new System.EventHandler(this.AddEdgeButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1933, 854);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.addEdgeButton);
+            this.Controls.Add(this.addVertexButton);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.listBox3);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.copyGraphButton);
+            this.Controls.Add(this.createGraphButton);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -187,18 +168,16 @@ namespace Lab6
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button createGraphButton;
+        private System.Windows.Forms.Button copyGraphButton;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button addVertexButton;
+        private System.Windows.Forms.Button addEdgeButton;
     }
 }
 

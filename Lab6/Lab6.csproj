@@ -62,11 +62,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DrawUtil.cs" />
+    <Compile Include="EdgeFormPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EdgeFormPopup.Designer.cs">
+      <DependentUpon>EdgeFormPopup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VertexFormPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VertexFormPopup.Designer.cs">
+      <DependentUpon>VertexFormPopup.cs</DependentUpon>
     </Compile>
     <Compile Include="GraphComponent.cs" />
     <Compile Include="IGraphComponent.cs" />
@@ -76,8 +88,14 @@
     <Compile Include="Graph.cs" />
     <Compile Include="IGraph.cs" />
     <Compile Include="Vertex.cs" />
+    <EmbeddedResource Include="EdgeFormPopup.resx">
+      <DependentUpon>EdgeFormPopup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VertexFormPopup.resx">
+      <DependentUpon>VertexFormPopup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
