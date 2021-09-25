@@ -18,7 +18,7 @@ namespace Lab6.Properties
 
         void copy();
 
-        void getID();
+        int getID();
 
     }
 }

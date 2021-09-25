@@ -41,10 +41,11 @@ namespace Lab6.Properties
 
         }
 
-        public void getID()
+        public int getID()
         {
 
 
+            return id;
         }
 
         public void addEdge(Vertex from, Vertex to)

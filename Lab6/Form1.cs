@@ -13,6 +13,11 @@ namespace Lab6
 {
     public partial class Form1 : Form
     {
+
+        int x_source, x_dest;
+        int y_source, y_dest;
+        int size_source, size_dest;
+
         public Form1()
         {
             
@@ -22,7 +27,25 @@ namespace Lab6
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (int.TryParse(textBox1.Text, out x_source)  && int.TryParse(textBox2.Text, out y_source) && int.TryParse(textBox3.Text, out size_source))
+            {
+                Graph g1 = new Graph();
+                Vertex v1 = new Vertex(x_source, y_source);
+                Vertex v2 = new Vertex(x_dest, y_dest);
+                Edge e1 = new Edge(v1, v2);
+                g1.addVertex(x_source, y_source);
+                g1.addVertex(x_dest, y_dest);
+                g1.addEdge(v1, v2);
+                
+                listBox1.Items.Add(g1.getID().ToString());
+            }
+            else
+            {
+                string message = "Please ensure inputs are set as integers";
+                MessageBox.Show(message);
+            }
 
+            
         }
 
 
@@ -39,8 +62,19 @@ namespace Lab6
 
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
 
 
+       
+
+        private void listBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            string selectedItem = listBox1.SelectedItem.ToString();
+
+        }
 
     }
 }
